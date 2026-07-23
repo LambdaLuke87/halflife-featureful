@@ -675,6 +675,33 @@ protected:
 
 LINK_ENTITY_TO_CLASS( item_battery, CItemBattery )
 
+class CSecurityArmor : public CItemBattery
+{
+protected:
+	virtual const char* DefaultModel() { return "models/w_battery.mdl"; }
+	virtual int DefaultCapacity() { return GetSkillValue("security_armor"); }
+};
+
+LINK_ENTITY_TO_CLASS(item_security_armor, CSecurityArmor)
+
+class CSpiritualArmor : public CItemBattery
+{
+protected:
+	virtual const char* DefaultModel() { return "models/w_battery.mdl"; }
+	virtual int DefaultCapacity() { return GetSkillValue("spiritual_armor"); }
+};
+
+LINK_ENTITY_TO_CLASS(item_spiritual_armor, CSpiritualArmor)
+
+class CCombatArmor : public CItemBattery
+{
+protected:
+	virtual const char* DefaultModel() { return "models/w_battery.mdl"; }
+	virtual int DefaultCapacity() { return GetSkillValue("combat_armor"); }
+};
+
+LINK_ENTITY_TO_CLASS(item_combat_armor, CCombatArmor)
+
 class CItemArmorVest : public CItemBattery
 {
 protected:

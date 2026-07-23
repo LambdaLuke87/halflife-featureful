@@ -74,6 +74,118 @@ bool CHealthKit::MyTouch( CBasePlayer *pPlayer )
 	return false;
 }
 
+class CHealthPotion : public CHealthKit
+{
+public:
+	void Spawn() override;
+	void Precache() override;
+	//bool MyTouch(CBasePlayer* pPlayer) override;
+
+	//static const NamedSoundScript pickupSoundScript;
+protected:
+	virtual int DefaultCapacity() { return GetSkillValue("health_potion"); }
+};
+
+void CHealthPotion::Spawn()
+{
+	Precache();
+	SetMyModel("models/w_medkit.mdl");
+
+	CItem::Spawn();
+}
+
+void CHealthPotion::Precache()
+{
+	PrecacheMyModel("models/w_medkit.mdl");
+	RegisterAndPrecacheSoundScript(pickupSoundScript);
+}
+
+LINK_ENTITY_TO_CLASS(item_health_potion, CHealthPotion)
+
+class CStimPack : public CHealthKit
+{
+public:
+	void Spawn() override;
+	void Precache() override;
+	//bool MyTouch(CBasePlayer* pPlayer) override;
+
+	//static const NamedSoundScript pickupSoundScript;
+protected:
+	virtual int DefaultCapacity() { return GetSkillValue("stimpack"); }
+};
+
+void CStimPack::Spawn()
+{
+	Precache();
+	SetMyModel("models/w_medkit.mdl");
+
+	CItem::Spawn();
+}
+
+void CStimPack::Precache()
+{
+	PrecacheMyModel("models/w_medkit.mdl");
+	RegisterAndPrecacheSoundScript(pickupSoundScript);
+}
+
+LINK_ENTITY_TO_CLASS(item_stimpack, CStimPack)
+
+class CMedkitItem : public CHealthKit
+{
+public:
+	void Spawn() override;
+	void Precache() override;
+	//bool MyTouch(CBasePlayer* pPlayer) override;
+
+	//static const NamedSoundScript pickupSoundScript;
+protected:
+	virtual int DefaultCapacity() { return GetSkillValue("medkititem"); }
+};
+
+void CMedkitItem::Spawn()
+{
+	Precache();
+	SetMyModel("models/w_medkit.mdl");
+
+	CItem::Spawn();
+}
+
+void CMedkitItem::Precache()
+{
+	PrecacheMyModel("models/w_medkit.mdl");
+	RegisterAndPrecacheSoundScript(pickupSoundScript);
+}
+
+LINK_ENTITY_TO_CLASS(item_medkit, CMedkitItem)
+
+class CSoulSphere : public CHealthKit
+{
+public:
+	void Spawn() override;
+	void Precache() override;
+	//bool MyTouch(CBasePlayer* pPlayer) override;
+
+	//static const NamedSoundScript pickupSoundScript;
+protected:
+	virtual int DefaultCapacity() { return GetSkillValue("soulsphere"); }
+};
+
+void CSoulSphere::Spawn()
+{
+	Precache();
+	SetMyModel("models/w_medkit.mdl");
+
+	CItem::Spawn();
+}
+
+void CSoulSphere::Precache()
+{
+	PrecacheMyModel("models/w_medkit.mdl");
+	RegisterAndPrecacheSoundScript(pickupSoundScript);
+}
+
+LINK_ENTITY_TO_CLASS(item_soulsphere, CSoulSphere)
+
 //-------------------------------------------------------------
 // Base class for wall chargers
 //-------------------------------------------------------------
